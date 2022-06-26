@@ -19,6 +19,7 @@ export default function App() {
         backgroundColor: 'dodgerblue',
         width: '50%',
         height: '10%',
+        flexDirection: "row"
       }}>
         <Text>Open up App.js to start shit on your app!</Text>
         <StatusBar style="auto" />
