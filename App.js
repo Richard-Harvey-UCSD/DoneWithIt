@@ -9,25 +9,16 @@ import {
   StatusBar,
   SafeAreaView
 } from 'react-native';
+
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
-  console.log(Dimensions.get('screen'));
-
   return (
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
-      <ViewImageScreen />
-      {/* <View style={{
-        backgroundColor: 'dodgerblue',
-        width: '50%',
-        height: '10%',
-        flexDirection: "row"
-      }}>
-        <Text>Open up App.js to start shit on your app!</Text>
-        <StatusBar style="auto" />
-      </View> */}
+      {/* <ViewImageScreen /> */}
+      <View style={styles.border}></View>
     </SafeAreaView>
   );
 }
@@ -35,8 +26,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  border: {
+    backgroundColor: 'dodgerblue',
+    width: 100,
+    height: 100,
+    borderWidth: 10,
+    borderColor: 'royalblue',
+    borderRadius: 50,
+    // borderTopWidth: 20,
+    // borderTopLeftRadius: 50,
+  }
 });
