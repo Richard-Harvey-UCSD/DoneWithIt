@@ -7,11 +7,13 @@ import {
   View,
   Platform,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  ScrollView
 } from 'react-native';
 
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+import AppText from './app/components/AppText';
 
 export default function App() {
   return (
@@ -22,7 +24,19 @@ export default function App() {
         <View style={styles.innerSquare}></View>
       </View>
       <View style={styles.secondSquare}></View> */}
-      <Text style={styles.text}>I love React Native! This is my first React Native app! Here's some more text.</Text>
+      {/* <AppText style={styles.text}>I love React Native!</AppText> */}
+      <ScrollView style={styles.scroller}>
+        <Text style={{ fontFamily: 'normal' }}>  normal </Text>
+        <Text style={{ fontFamily: 'notoserif' }}>  notoserif </Text>
+        <Text style={{ fontFamily: 'sans-serif' }}>  sans-serif </Text>
+        <Text style={{ fontFamily: 'sans-serif-light' }}>  sans-serif-light </Text>
+        <Text style={{ fontFamily: 'sans-serif-thin' }}>  sans-serif-thin </Text>
+        <Text style={{ fontFamily: 'sans-serif-condensed' }}>  sans-serif-condensed </Text>
+        <Text style={{ fontFamily: 'sans-serif-medium' }}>  sans-serif-medium </Text>
+        <Text style={{ fontFamily: 'serif' }}>  serif </Text>
+        <Text style={{ fontFamily: 'Roboto' }}>  Roboto </Text>
+        <Text style={{ fontFamily: 'monospace' }}>  monospace </Text>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -73,11 +87,11 @@ const styles = StyleSheet.create({
     elevation: 20,
   },
   text: {
-    fontFamily: 'helvetica',
+    // fontFamily: 'helvetica-times',
     fontSize: 30,
     fontStyle: 'italic',
-    fontWeight: '600',
-    color: 'tomato',
+    fontWeight: '700',
+    color: 'blue',
     textTransform: 'capitalize',
     textDecorationLine: 'line-through',
     textAlign: 'center',
