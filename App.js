@@ -18,17 +18,15 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-      <View style={styles.borders}></View>
+      <View style={styles.padding}>
+        <View style={styles.innerSquare}></View>
+      </View>
+      <View style={styles.secondSquare}></View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   borders: {
     backgroundColor: 'dodgerblue',
     width: 100,
@@ -38,6 +36,30 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     // borderTopWidth: 20,
     // borderTopLeftRadius: 50,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  innerSquare: {
+    backgroundColor: 'gold',
+    width: 50,
+    height: 50,
+  },
+  padding: {
+    backgroundColor: 'dodgerblue',
+    width: 100,
+    height: 100,
+    padding: 20,
+    paddingHorizontal: 10,
+    paddingLeft: 30
+  },
+  secondSquare: {
+    backgroundColor: 'tomato',
+    width: 100,
+    height: 100,
+    margin: 20,
   },
   shadows: {
     backgroundColor: 'dodgerblue',
