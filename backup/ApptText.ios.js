@@ -9,8 +9,10 @@ function AppText({ children }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'blue',
+    color: 'red',
     fontSize: 20,
     fontFamily: 'Avenir',
   },
 });
+
+export default AppText;

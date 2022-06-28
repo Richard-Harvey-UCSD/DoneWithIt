@@ -14,6 +14,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+// import AppText from './app/components/AppText/AppText';
 import AppText from './app/components/AppText';
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
         <View style={styles.innerSquare}></View>
       </View>
       <View style={styles.secondSquare}></View>
-      <AppText style={styles.text}>I love React Native!</AppText>
+      <AppText>I love React Native!</AppText>
       <MaterialCommunityIcons name='email' size={200} color='dodgerblue' />
     </SafeAreaView>
   );

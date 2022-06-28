@@ -9,7 +9,7 @@ function AppText({ children }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'blue',
+    color: 'green',
     fontSize: 18,
     fontFamily: 'Roboto',
   },
