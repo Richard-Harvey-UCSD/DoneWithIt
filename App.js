@@ -9,13 +9,15 @@ import {
   StatusBar,
   SafeAreaView
 } from 'react-native';
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
   console.log(Dimensions.get('screen'));
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{
+      <WelcomeScreen />
+      {/* <View style={{
         backgroundColor: 'dodgerblue',
         width: '50%',
         height: '10%',
@@ -23,7 +25,7 @@ export default function App() {
       }}>
         <Text>Open up App.js to start shit on your app!</Text>
         <StatusBar style="auto" />
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 }
