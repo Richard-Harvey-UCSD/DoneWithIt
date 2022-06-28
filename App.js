@@ -18,10 +18,11 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-      <View style={styles.padding}>
+      {/* <View style={styles.padding}>
         <View style={styles.innerSquare}></View>
       </View>
-      <View style={styles.secondSquare}></View>
+      <View style={styles.secondSquare}></View> */}
+      <Text style={styles.text}>I love React Native! This is my first React Native app! Here's some more text.</Text>
     </SafeAreaView>
   );
 }
@@ -70,5 +71,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     elevation: 20,
+  },
+  text: {
+    fontFamily: 'helvetica',
+    fontSize: 30,
+    fontStyle: 'italic',
+    fontWeight: '600',
+    color: 'tomato',
+    textTransform: 'capitalize',
+    textDecorationLine: 'line-through',
+    textAlign: 'center',
+    lineHeight: 30,
   }
 });
