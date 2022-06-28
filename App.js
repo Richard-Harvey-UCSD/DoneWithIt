@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   ScrollView
 } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -20,23 +21,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-      {/* <View style={styles.padding}>
+      <View style={styles.padding}>
         <View style={styles.innerSquare}></View>
       </View>
-      <View style={styles.secondSquare}></View> */}
-      {/* <AppText style={styles.text}>I love React Native!</AppText> */}
-      <ScrollView style={styles.scroller}>
-        <Text style={{ fontFamily: 'normal' }}>  normal </Text>
-        <Text style={{ fontFamily: 'notoserif' }}>  notoserif </Text>
-        <Text style={{ fontFamily: 'sans-serif' }}>  sans-serif </Text>
-        <Text style={{ fontFamily: 'sans-serif-light' }}>  sans-serif-light </Text>
-        <Text style={{ fontFamily: 'sans-serif-thin' }}>  sans-serif-thin </Text>
-        <Text style={{ fontFamily: 'sans-serif-condensed' }}>  sans-serif-condensed </Text>
-        <Text style={{ fontFamily: 'sans-serif-medium' }}>  sans-serif-medium </Text>
-        <Text style={{ fontFamily: 'serif' }}>  serif </Text>
-        <Text style={{ fontFamily: 'Roboto' }}>  Roboto </Text>
-        <Text style={{ fontFamily: 'monospace' }}>  monospace </Text>
-      </ScrollView>
+      <View style={styles.secondSquare}></View>
+      <AppText style={styles.text}>I love React Native!</AppText>
+      <MaterialCommunityIcons name='email' size={200} color='dodgerblue' />
     </SafeAreaView>
   );
 }

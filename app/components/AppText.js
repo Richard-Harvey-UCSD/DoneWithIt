@@ -12,7 +12,7 @@ function AppText({ children }) {
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    fontFamily: Platform.OS === 'android' ? 'Lucida' : 'Copperplate',
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Copperplate',
   }
 });
 
