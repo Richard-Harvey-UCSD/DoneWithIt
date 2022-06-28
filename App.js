@@ -18,7 +18,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-      <View style={styles.border}></View>
+      <View style={styles.borders}></View>
     </SafeAreaView>
   );
 }
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  border: {
+  borders: {
     backgroundColor: 'dodgerblue',
     width: 100,
     height: 100,
@@ -38,5 +38,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     // borderTopWidth: 20,
     // borderTopLeftRadius: 50,
+  },
+  shadows: {
+    backgroundColor: 'dodgerblue',
+    width: 100,
+    height: 100,
+    shadowColor: 'grey',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 20,
   }
 });
