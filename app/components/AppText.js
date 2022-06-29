@@ -4,9 +4,9 @@ import { Text } from 'react-native';
 import styles from './AppText/styles';
 
 // <Heading>My Heading</Heading>
-function AppText({ children }) {
+function AppText({ children, style }) {
   return (
-    <Text style={styles.text}>{children}</Text>
+    <Text style={[styles.text, style]}>{children}</Text>
   );
 }
 
