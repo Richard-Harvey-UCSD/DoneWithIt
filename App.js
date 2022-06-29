@@ -19,19 +19,7 @@ import AppText from './app/components/AppText';
 import AppButton from './app/components/AppButton';
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      {/* <WelcomeScreen /> */}
-      {/* <ViewImageScreen /> */}
-      {/* <View style={styles.padding}>
-        <View style={styles.innerSquare}></View>
-      </View>
-      <View style={styles.secondSquare}></View>
-      <AppText>I love React Native!</AppText>
-      <MaterialCommunityIcons name='email' size={200} color='dodgerblue' /> */}
-      <AppButton title='Login' onPress={() => console.log('tapped')} />
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
