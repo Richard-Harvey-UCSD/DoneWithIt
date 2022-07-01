@@ -1,5 +1,5 @@
 // import Constants from 'expo-constants';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   // Platform,
@@ -14,7 +14,7 @@ import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: 'T1',
@@ -30,6 +30,14 @@ const messages = [
 ];
 
 function MessagesScreen(props) {
+  const [messages, setMessages] = useState(initialMessages);
+
+  const handleDelete = message => {
+    // delete the message from messages
+    // call the server
+    setMessages(messages.filter(m => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -41,7 +49,10 @@ function MessagesScreen(props) {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log()}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() =>
+              <ListItemDeleteAction onPress={() => handleDelete(item)}
+              />
+            }
           />
         }
         ItemSeparatorComponent={ListItemSeparator}
