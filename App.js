@@ -24,10 +24,13 @@ import MessagesScreen from './app/screens/MessagesScreen';
 import Screen from './app/components/Screen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+import ListingsScreen from './app/screens/ListingsScreen';
 
 export default function App() {
   return <Screen>
-    <AccountScreen />
+    <ListingsScreen />
+
+    {/* <AccountScreen /> */}
 
     {/* <ListItem
       title='My title'
