@@ -5,9 +5,9 @@ import { Platform, SafeAreaView, StyleSheet, View } from 'react-native';
 function Screen({ children, style }) {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      {/* <View style={style}> */}
-      {children}
-      {/* </View> */}
+      <View style={style}>
+        {children}
+      </View>
     </SafeAreaView>
   );
 }
@@ -15,7 +15,7 @@ function Screen({ children, style }) {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight / 2 : Constants.statusBarHeight,
+    paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : Constants.statusBarHeight,
     // paddingTop: Constants.statusBarHeight,
   },
 });

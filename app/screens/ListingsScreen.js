@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, Platform, PlatformColor, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 
 import colors from '../config/colors';
@@ -40,7 +40,7 @@ function ListingsScreen(props) {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 20,
+    padding: Platform.OS === 'android' ? 8 : 20,
     backgroundColor: colors.light,
   }
 });

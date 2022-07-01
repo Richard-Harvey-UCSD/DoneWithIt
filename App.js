@@ -33,6 +33,7 @@ export default function App() {
 
   return (
     <Screen>
+      {/* <StatusBar hidden={false} backgroundColor='black' /> */}
       <AppTextInput icon='email' placeholder='Username' />
 
       {/* <Text>{firstName}</Text>
@@ -47,7 +48,7 @@ export default function App() {
         }}
       /> */}
 
-      {/* <ListingsScreen /> */}
+
 
       {/* <AccountScreen /> */}
 
