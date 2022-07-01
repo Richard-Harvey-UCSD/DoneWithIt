@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import React from "react";
+import React, { useState } from "react";
 import {
   Dimensions,
   Platform,
@@ -8,6 +8,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -18,33 +19,49 @@ import AppButton from './app/components/AppButton';
 import AppText from './app/components/AppText';
 import Card from './app/components/Card';
 import Icon from './app/components/Icon';
-import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import ListItem from './app/components/ListItem';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import ListingsScreen from './app/screens/ListingsScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import Screen from './app/components/Screen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
-import ListingsScreen from './app/screens/ListingsScreen';
 
 export default function App() {
-  return <Screen>
-    <ListingsScreen />
+  const [firstName, setFirstName] = useState('');
 
-    {/* <AccountScreen /> */}
+  return (
+    <Screen>
+      <Text>{firstName}</Text>
+      <TextInput
+        clearButtonMode='always'
+        maxLength={30}
+        onChangeText={text => setFirstName(text)}
+        placeholder='First Name'
+        style={{
+          borderBottomColor: '#ccc',
+          borderBottomWidth: 1
+        }}
+      />
 
-    {/* <ListItem
+      {/* <ListingsScreen /> */}
+
+      {/* <AccountScreen /> */}
+
+      {/* <ListItem
       title='My title'
       subTitle={'My subtitle'}
       ImageComponent={<Icon name='email' />}
     /> */}
 
-    {/* <Icon
+      {/* <Icon
       name='email'
       size={50}
       backgroundColor='red'
       iconColor='white'
     /> */}
-  </Screen>;
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({
