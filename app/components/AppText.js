@@ -1,6 +1,8 @@
 import React from 'react';
 import { Platform, StyleSheet, Text } from 'react-native';
 
+import colors from '../config/colors';
+
 // import styles from './AppText/styles';
 
 // <Heading>My Heading</Heading>
@@ -12,7 +14,7 @@ function AppText({ children, style }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'black',
+    color: colors.dark,
     ...Platform.select({
       ios: {
         fontSize: 20,

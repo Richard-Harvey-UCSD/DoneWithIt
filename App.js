@@ -28,6 +28,7 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import AppPicker from './app/components/AppPicker';
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
@@ -35,16 +36,17 @@ export default function App() {
 
   return (
     <Screen>
-      <Switch
+      {/* <Switch
         value={isNew}
         onValueChange={(newValue) => setIsNew(newValue)}
         ios_backgroundColor={'red'}
         thumbColor={'white'}
         trackColor={{ false: 'red', true: 'green' }}
-      />
+      /> */}
 
       {/* <StatusBar hidden={false} backgroundColor='black' /> */}
-      {/* <AppTextInput icon='email' placeholder='Username' /> */}
+      <AppPicker icon='apps' placeholder='Category' />
+      <AppTextInput icon='email' placeholder='Email' />
 
       {/* <Text>{firstName}</Text>
       <TextInput
