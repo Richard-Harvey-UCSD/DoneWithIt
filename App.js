@@ -16,6 +16,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
+import AppPicker from './app/components/AppPicker';
 // import AppText from './app/components/AppText/AppText';
 import AppText from "./app/components/AppText";
 import AppTextInput from "./app/components/AppTextInput";
@@ -28,7 +29,12 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import AppPicker from './app/components/AppPicker';
+
+const categories = [
+  { label: 'Furniture', value: 1 },
+  { label: 'Clothing', value: 2 },
+  { label: 'Cameras', value: 3 },
+];
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
@@ -45,7 +51,7 @@ export default function App() {
       /> */}
 
       {/* <StatusBar hidden={false} backgroundColor='black' /> */}
-      <AppPicker icon='apps' placeholder='Category' />
+      <AppPicker items={categories} icon='apps' placeholder='Category' />
       <AppTextInput icon='email' placeholder='Email' />
 
       {/* <Text>{firstName}</Text>
