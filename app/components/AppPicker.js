@@ -5,17 +5,21 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AppText from './AppText';
 import colors from '../config/colors';
 import defaultStyles from '../config/styles';
-import Screen from './Screen';
 import PickerItem from './PickerItem';
+import Screen from './Screen';
 
-function AppPicker({ icon, items, placeholder, ...otherProps }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   // console.log(icon);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        < View style={styles.container} >
+      <TouchableWithoutFeedback
+        onPress={() => setModalVisible(true)}
+      >
+        <View
+          style={styles.container}
+        >
           {icon &&
             <MaterialCommunityIcons
               name={icon}
@@ -31,7 +35,7 @@ function AppPicker({ icon, items, placeholder, ...otherProps }) {
           <AppText
             style={styles.text}
           >
-            {placeholder}
+            {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons
             name={'chevron-down'}
@@ -39,18 +43,27 @@ function AppPicker({ icon, items, placeholder, ...otherProps }) {
             color={colors.medium}
             style={styles.icon}
           />
-        </View >
-      </TouchableWithoutFeedback >
-      <Modal visible={modalVisible} animationType='slide'>
+        </View>
+      </TouchableWithoutFeedback>
+      <Modal
+        visible={modalVisible}
+        animationType='slide'
+      >
         <Screen>
-          <Button title='Close' onPress={() => setModalVisible(false)} />
+          <Button
+            title='Close'
+            onPress={() => setModalVisible(false)}
+          />
           <FlatList
             data={items}
             keyExtractor={item => item.value.toString()}
             renderItem={({ item }) =>
               <PickerItem
                 label={item.label}
-                onPress={() => console.log(item)}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
               />
             }
           />

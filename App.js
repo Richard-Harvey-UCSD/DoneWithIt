@@ -39,6 +39,7 @@ const categories = [
 export default function App() {
   const [firstName, setFirstName] = useState("");
   const [isNew, setIsNew] = useState(false);
+  const [category, setCategory] = useState(categories[0]);
 
   return (
     <Screen>
@@ -51,8 +52,17 @@ export default function App() {
       /> */}
 
       {/* <StatusBar hidden={false} backgroundColor='black' /> */}
-      <AppPicker items={categories} icon='apps' placeholder='Category' />
-      <AppTextInput icon='email' placeholder='Email' />
+      <AppPicker
+        icon='apps'
+        items={categories}
+        onSelectItem={item => setCategory(item)}
+        placeholder='Category'
+        selectedItem={category}
+      />
+      <AppTextInput
+        icon='email'
+        placeholder='Email'
+      />
 
       {/* <Text>{firstName}</Text>
       <TextInput
