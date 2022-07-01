@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import AccountScreen from './app/screens/AccountScreen';
 import AppButton from './app/components/AppButton';
 // import AppText from './app/components/AppText/AppText';
 import AppText from './app/components/AppText';
@@ -26,11 +27,13 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
   return <Screen>
-    <ListItem
+    <AccountScreen />
+
+    {/* <ListItem
       title='My title'
       subTitle={'My subtitle'}
       ImageComponent={<Icon name='email' />}
-    />
+    /> */}
 
     {/* <Icon
       name='email'
