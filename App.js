@@ -17,6 +17,7 @@ import AccountScreen from './app/screens/AccountScreen';
 import AppButton from './app/components/AppButton';
 // import AppText from './app/components/AppText/AppText';
 import AppText from './app/components/AppText';
+import AppTextInput from './app/components/AppTextInput';
 import Card from './app/components/Card';
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
@@ -32,7 +33,9 @@ export default function App() {
 
   return (
     <Screen>
-      <Text>{firstName}</Text>
+      <AppTextInput icon='email' placeholder='Username' />
+
+      {/* <Text>{firstName}</Text>
       <TextInput
         clearButtonMode='always'
         maxLength={30}
@@ -42,7 +45,7 @@ export default function App() {
           borderBottomColor: '#ccc',
           borderBottomWidth: 1
         }}
-      />
+      /> */}
 
       {/* <ListingsScreen /> */}
 
