@@ -82,3 +82,7 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   }
 });
+
+// Account screen planning:
+// 2 ListItems - account details & logout
+// 1 FlatList - listings, account info, etc.
