@@ -23,9 +23,11 @@ import AppText from "./app/components/AppText";
 import AppTextInput from "./app/components/AppTextInput";
 import Card from "./app/components/Card";
 import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+// import ListingEditScreen from './app/screens/ListingEditScreen_MINE';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 import ListingsScreen from "./app/screens/ListingsScreen";
+import ListItem from "./app/components/ListItem";
 import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
@@ -76,7 +78,8 @@ export default function App() {
         onPress={() => console.log(email, password)}
         title='Login'
       /> */}
-      <LoginScreen />
+      <ListingEditScreen />
+      {/* <LoginScreen /> */}
       {/* <AppButton
         title='button'
         onPress={() => console.log('pressed')}
