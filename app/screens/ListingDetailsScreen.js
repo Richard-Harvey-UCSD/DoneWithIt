@@ -18,7 +18,6 @@ function ListingDetailsScreen(props) {
             title="Mosh Hamedani"
             subTitle="5 Listings"
           />
-
         </View>
       </View>
     </View>
