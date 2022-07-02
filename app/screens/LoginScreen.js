@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import AppButton from '../components/AppButton';
+import AppForm from '../components/AppForm';
 import AppFormField from '../components/AppFormField';
 import AppText from '../components/AppText';
 import AppTextInput from '../components/AppTextInput';
@@ -26,49 +27,45 @@ function LoginScreen(props) {
         source={require('../assets/logo-red.png')}
         style={styles.logo}
       />
-      <Formik
+      <AppForm
         initialValues={{ email: '', password: '' }}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              autoCapitalize='none'
-              autoCorrect={false}
-              icon='email'
-              keyboardType='email-address'
-              name='email'
-              // onBlur={() => setFieldTouched('email')}
-              // onChangeText={handleChange('email')}
-              placeholder='Email'
-              textContentType='emailAddress'
-            />
-            {/* <AppText style={{ color: 'red' }}>{errors.email}</AppText> */}
-            {/* <ErrorMessage error={errors.email} visible={touched.email} /> */}
-            <AppFormField
-              autoCapitalize='none'
-              autoCorrect={false}
-              icon='lock'
-              // keyboardType='email-address'
-              name='password'
-              // onBlur={() => setFieldTouched('password')}
-              // onChangeText={handleChange('password')}
-              placeholder='Password'
-              secureTextEntry
-              textContentType='password'
-              editable
-            />
-            {/* <AppText style={{ color: 'red' }}>{errors.password}</AppText> */}
-            {/* <ErrorMessage error={errors.password} visible={touched.password} /> */}
-            {/* <AppButton
+        <AppFormField
+          autoCapitalize='none'
+          autoCorrect={false}
+          icon='email'
+          keyboardType='email-address'
+          name='email'
+          // onBlur={() => setFieldTouched('email')}
+          // onChangeText={handleChange('email')}
+          placeholder='Email'
+          textContentType='emailAddress'
+        />
+        {/* <AppText style={{ color: 'red' }}>{errors.email}</AppText> */}
+        {/* <ErrorMessage error={errors.email} visible={touched.email} /> */}
+        <AppFormField
+          autoCapitalize='none'
+          autoCorrect={false}
+          icon='lock'
+          // keyboardType='email-address'
+          name='password'
+          // onBlur={() => setFieldTouched('password')}
+          // onChangeText={handleChange('password')}
+          placeholder='Password'
+          secureTextEntry
+          textContentType='password'
+          editable
+        />
+        {/* <AppText style={{ color: 'red' }}>{errors.password}</AppText> */}
+        {/* <ErrorMessage error={errors.password} visible={touched.password} /> */}
+        {/* <AppButton
               onPress={handleSubmit}
               title='Login'
             /> */}
-            <SubmitButton title='Login' />
-          </>
-        )}
-      </Formik>
+        <SubmitButton title='Login' />
+      </AppForm>
     </Screen>
   );
 }
