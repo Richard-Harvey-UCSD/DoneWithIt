@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import {
   Dimensions,
+  Image,
   Platform,
   SafeAreaView,
   ScrollView,
@@ -25,6 +26,7 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -41,8 +43,55 @@ export default function App() {
   const [isNew, setIsNew] = useState(false);
   const [category, setCategory] = useState(categories[0]);
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <Screen>
+      {/* <Image
+        source={require('./app/assets/logo-red.png')}
+        style={styles.logo}
+      />
+      <AppTextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        icon='email'
+        keyboardType='email-address'
+        onChangeText={text => setEmail(text)}
+        placeholder='Email'
+        textContentType='emailAddress'
+      />
+      <AppTextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        icon='lock'
+        // keyboardType='email-address'
+        onChangeText={text => setPassword(text)}
+        placeholder='Password'
+        secureTextEntry
+        textContentType='password'
+        editable
+      />
+      <AppButton
+        onPress={() => console.log(email, password)}
+        title='Login'
+      /> */}
+      <LoginScreen />
+      {/* <AppButton
+        title='button'
+        onPress={() => console.log('pressed')}
+      />
+      <AppTextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        icon='lock'
+        // keyboardType='email-address'
+        onChangeText={text => setPassword(text)}
+        placeholder='Password'
+        secureTextEntry
+        textContentType='password'
+        editable
+      /> */}
       {/* <Switch
         value={isNew}
         onValueChange={(newValue) => setIsNew(newValue)}
@@ -52,7 +101,7 @@ export default function App() {
       /> */}
 
       {/* <StatusBar hidden={false} backgroundColor='black' /> */}
-      <AppPicker
+      {/* <AppPicker
         icon='apps'
         items={categories}
         onSelectItem={item => setCategory(item)}
@@ -62,7 +111,7 @@ export default function App() {
       <AppTextInput
         icon='email'
         placeholder='Email'
-      />
+      /> */}
 
       {/* <Text>{firstName}</Text>
       <TextInput

@@ -1,39 +1,46 @@
 import React from 'react';
 import {
   Image,
-  ImageBackground, StyleSheet, Text, View
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View
 } from "react-native";
+
 import AppButton from '../components/AppButton';
 
-function WelcomeScreen(props) {
+const WelcomeScreen = () => {
   return (
-    <ImageBackground
-      blurRadius={10}
-      style={styles.background}
-      source={require('../assets/background.jpg')}
-    >
-      <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('../assets/logo-red.png')} />
-        <Text style={styles.tagline}>Sell What You Don't Need</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <AppButton title='Login' color='primary' />
-        <AppButton title='Register' color='secondary' />
-      </View>
-    </ImageBackground>
-
+    <View>
+      <ImageBackground
+        style={styles.background}
+        blurRadius={10}
+        source={require('../assets/background.jpg')}
+      >
+        <View style={styles.logoContainer}>
+          <Image style={styles.logo} source={require('../assets/logo-red.png')} />
+          <Text style={styles.tagline}>Sell What You Don't Need</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <AppButton title='Login' color='primary' />
+          <AppButton title='Register' color='secondary' />
+        </View>
+      </ImageBackground>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
   buttonContainer: {
     padding: 20,
     width: '100%',
+    // height: '100%',
+    marginTop: 600,
   },
   // loginButton: {
   //   width: '100%',
@@ -57,7 +64,7 @@ const styles = StyleSheet.create({
   tagline: {
     fontSize: 25,
     fontWeight: '600',
-    paddingVertical: 20,
+    paddingTop: 20,
   },
 });
 
