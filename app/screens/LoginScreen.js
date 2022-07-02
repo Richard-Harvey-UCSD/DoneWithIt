@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import { Formik } from 'formik';
 
 import AppButton from '../components/AppButton';
 import AppTextInput from '../components/AppTextInput';
@@ -15,30 +16,39 @@ function LoginScreen(props) {
         source={require('../assets/logo-red.png')}
         style={styles.logo}
       />
-      <AppTextInput
-        autoCapitalize='none'
-        autoCorrect={false}
-        icon='email'
-        keyboardType='email-address'
-        onChangeText={text => setEmail(text)}
-        placeholder='Email'
-        textContentType='emailAddress'
-      />
-      <AppTextInput
-        autoCapitalize='none'
-        autoCorrect={false}
-        icon='lock'
-        // keyboardType='email-address'
-        onChangeText={text => setPassword(text)}
-        placeholder='Password'
-        secureTextEntry
-        textContentType='password'
-        editable
-      />
-      <AppButton
-        onPress={() => console.log(email, password)}
-        title='Login'
-      />
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        onSubmit={values => console.log(values)}
+      >
+        {({ handleChange, handleSubmit }) => (
+          <>
+            <AppTextInput
+              autoCapitalize='none'
+              autoCorrect={false}
+              icon='email'
+              keyboardType='email-address'
+              onChangeText={handleChange('email')}
+              placeholder='Email'
+              textContentType='emailAddress'
+            />
+            <AppTextInput
+              autoCapitalize='none'
+              autoCorrect={false}
+              icon='lock'
+              // keyboardType='email-address'
+              onChangeText={handleChange('password')}
+              placeholder='Password'
+              secureTextEntry
+              textContentType='password'
+              editable
+            />
+            <AppButton
+              onPress={handleSubmit}
+              title='Login'
+            />
+          </>
+        )}
+      </Formik>
     </Screen>
   );
 }
