@@ -36,14 +36,24 @@ function ListingEditScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <FormField maxLength={255} name="title" placeholder="Title" />
+        <FormField
+          maxLength={255}
+          name="title"
+          placeholder="Title"
+        />
         <FormField
           keyboardType="numeric"
           maxLength={8}
           name="price"
           placeholder="Price"
+          width={120}
         />
-        <Picker items={categories} name="category" placeholder="Category" />
+        <Picker
+          items={categories}
+          name="category"
+          placeholder="Category"
+          width='50%'
+        />
         <FormField
           maxLength={255}
           multiline
