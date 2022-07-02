@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { Formik } from 'formik';
+// import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import AppButton from '../components/AppButton';
-import AppForm from '../components/AppForm';
-import AppFormField from '../components/AppFormField';
-import AppText from '../components/AppText';
-import AppTextInput from '../components/AppTextInput';
-import ErrorMessage from '../components/ErrorMessage';
+// import AppButton from '../components/AppButton';
+// import AppForm from '../components/forms/AppForm';
+// import AppFormField from '../components/forms/AppFormField';
+// import AppText from '../components/AppText';
+// import AppTextInput from '../components/AppTextInput';
+// import ErrorMessage from '../components/forms/ErrorMessage';
 import Screen from '../components/Screen';
-import SubmitButton from '../components/SubmitButton';
+// import SubmitButton from '../components/forms/SubmitButton';
+
+import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -18,8 +20,8 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
   return (
     <Screen style={styles.container}>
