@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
-    padding: 15,
     marginVertical: 10,
+    padding: 15,
+    width: "100%",
   },
   icon: {
     marginRight: 10,
