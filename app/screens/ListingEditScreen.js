@@ -8,6 +8,7 @@ import {
   AppFormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
+import CategoryPickerItem from '../components/CategoryPickerItem';
 import Screen from "../components/Screen";
 
 const validationSchema = Yup.object().shape({
@@ -51,6 +52,7 @@ function ListingEditScreen(props) {
         <Picker
           items={categories}
           name="category"
+          PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           width='50%'
         />
