@@ -1,8 +1,9 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
+  ImageComponent,
   Platform,
   SafeAreaView,
   ScrollView,
@@ -14,6 +15,7 @@ import {
   View,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import * as ImagePicker from 'expo-image-picker';
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
@@ -47,6 +49,16 @@ export default function App() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
+    if (!granted)
+      alert('You need to enable permission to access the library.');
+  };
+
+  useEffect(() => {
+    requestPermission();
+  }, []);
 
   return (
     <Screen>
