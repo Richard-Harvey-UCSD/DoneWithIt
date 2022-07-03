@@ -55,35 +55,44 @@ export default function App() {
 
   const [imageUri, setImageUri] = useState();
 
-  const requestPermission = async () => {
-    // const { granted } = await Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION);
-    // if (!granted)
-    //   alert('You need to enable permission to access the library.');
+  // const requestPermission = async () => {
+  //   // const { granted } = await Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION);
+  //   // if (!granted)
+  //   //   alert('You need to enable permission to access the library.');
 
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted)
-      alert('You need to enable permission to access the library.');
-  };
+  //   const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
+  //   if (!granted)
+  //     alert('You need to enable permission to access the library.');
+  // };
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  // useEffect(() => {
+  //   requestPermission();
+  // }, []);
 
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.cancelled)
-        setImageUri(result.uri);
-    } catch (error) {
-      console.log('Error reading an image', error);
-    }
-  };
+  // const selectImage = async () => {
+  //   try {
+  //     const result = await ImagePicker.launchImageLibraryAsync();
+  //     if (!result.cancelled)
+  //       setImageUri(result.uri);
+  //   } catch (error) {
+  //     console.log('Error reading an image', error);
+  //   }
+  // };
 
   return (
     <Screen>
-      <Button title='Select Image' onPress={selectImage} />
-      <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
-      <ImageInput imageUri={imageUri} />
+      {/* <Button
+        title='Select Image'
+        onPress={selectImage}
+      />
+      <Image
+        source={{ uri: imageUri }}
+        style={{ width: 200, height: 200 }}
+      /> */}
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={uri => setImageUri(uri)}
+      />
       {/* <Image
         source={require('./app/assets/logo-red.png')}
         style={styles.logo}
