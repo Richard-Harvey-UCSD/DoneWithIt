@@ -37,6 +37,7 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ImageInput from './app/components/ImageInput';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -82,6 +83,7 @@ export default function App() {
     <Screen>
       <Button title='Select Image' onPress={selectImage} />
       <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
+      <ImageInput imageUri={imageUri} />
       {/* <Image
         source={require('./app/assets/logo-red.png')}
         style={styles.logo}
