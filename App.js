@@ -18,6 +18,8 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
@@ -56,6 +58,7 @@ export default function App() {
 
   const [imageUris, setImageUris] = useState([]);
 
+  // methods
   const handleAdd = uri => {
     setImageUris([...imageUris, uri]);
   };
@@ -63,6 +66,27 @@ export default function App() {
   const handleRemove = uri => {
     setImageUris(imageUris.filter(imageUri => imageUri !== uri));
   };
+
+  // components
+  const Tweets = () => (
+    <Screen>
+      <Text>Tweets</Text>
+    </Screen>
+  );
+
+  const TweetDetails = () => (
+    <Screen>
+      <Text>Tweet Details</Text>
+    </Screen>
+  );
+
+  const Stack = createStackNavigator();
+  const StackNavigator = () => (
+    <Stack.Navigator initialRouteName='Tweets'>
+      <Stack.Screen name='Tweets' component={Tweets} />
+      <Stack.Screen name='TweetDetails' component={TweetDetails} />
+    </Stack.Navigator>
+  );
 
   // const requestPermission = async () => {
   //   // const { granted } = await Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION);
@@ -89,113 +113,9 @@ export default function App() {
   // };
 
   return (
-    <Screen>
-      {/* <Button
-        title='Select Image'
-        onPress={selectImage}
-      />
-      <Image
-        source={{ uri: imageUri }}
-        style={{ width: 200, height: 200 }}
-      /> */}
-      {/* <ImageInputList
-        imageUris={imageUris}
-        onAddImage={handleAdd}
-        onRemoveImage={handleRemove}
-      /> */}
-      {/* <Image
-        source={require('./app/assets/logo-red.png')}
-        style={styles.logo}
-      />
-      <AppTextInput
-        autoCapitalize='none'
-        autoCorrect={false}
-        icon='email'
-        keyboardType='email-address'
-        onChangeText={text => setEmail(text)}
-        placeholder='Email'
-        textContentType='emailAddress'
-      />
-      <AppTextInput
-        autoCapitalize='none'
-        autoCorrect={false}
-        icon='lock'
-        // keyboardType='email-address'
-        onChangeText={text => setPassword(text)}
-        placeholder='Password'
-        secureTextEntry
-        textContentType='password'
-        editable
-      />
-      <AppButton
-        onPress={() => console.log(email, password)}
-        title='Login'
-      /> */}
-      <ListingEditScreen />
-      {/* <LoginScreen /> */}
-      {/* <AppButton
-        title='button'
-        onPress={() => console.log('pressed')}
-      />
-      <AppTextInput
-        autoCapitalize='none'
-        autoCorrect={false}
-        icon='lock'
-        // keyboardType='email-address'
-        onChangeText={text => setPassword(text)}
-        placeholder='Password'
-        secureTextEntry
-        textContentType='password'
-        editable
-      /> */}
-      {/* <Switch
-        value={isNew}
-        onValueChange={(newValue) => setIsNew(newValue)}
-        ios_backgroundColor={'red'}
-        thumbColor={'white'}
-        trackColor={{ false: 'red', true: 'green' }}
-      /> */}
-
-      {/* <StatusBar hidden={false} backgroundColor='black' /> */}
-      {/* <AppPicker
-        icon='apps'
-        items={categories}
-        onSelectItem={item => setCategory(item)}
-        placeholder='Category'
-        selectedItem={category}
-      />
-      <AppTextInput
-        icon='email'
-        placeholder='Email'
-      /> */}
-
-      {/* <Text>{firstName}</Text>
-      <TextInput
-        clearButtonMode='always'
-        maxLength={30}
-        onChangeText={text => setFirstName(text)}
-        placeholder='First Name'
-        style={{
-          borderBottomColor: '#ccc',
-          borderBottomWidth: 1
-        }}
-      /> */}
-
-      {/* <AccountScreen /> */}
-
-      {/* <ListItem
-      title='My title'
-      subTitle={'My subtitle'}
-      ImageComponent={<Icon name='email' />}
-    /> */}
-
-      {/* <Icon
-      name='email'
-      size={50}
-      backgroundColor='red'
-      iconColor='white'
-    /> */}
-    </Screen>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
 
