@@ -98,11 +98,11 @@ export default function App() {
         source={{ uri: imageUri }}
         style={{ width: 200, height: 200 }}
       /> */}
-      <ImageInputList
+      {/* <ImageInputList
         imageUris={imageUris}
         onAddImage={handleAdd}
         onRemoveImage={handleRemove}
-      />
+      /> */}
       {/* <Image
         source={require('./app/assets/logo-red.png')}
         style={styles.logo}
@@ -131,7 +131,7 @@ export default function App() {
         onPress={() => console.log(email, password)}
         title='Login'
       /> */}
-      {/* <ListingEditScreen /> */}
+      <ListingEditScreen />
       {/* <LoginScreen /> */}
       {/* <AppButton
         title='button'
