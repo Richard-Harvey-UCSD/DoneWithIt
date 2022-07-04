@@ -20,6 +20,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
@@ -79,7 +80,7 @@ export default function App() {
   };
 
   // components
-  const Tweets = ({ navigation }) => (
+  const Tweets = () => (
     <Screen>
       <Text>Tweets</Text>
       <Link />
@@ -89,10 +90,6 @@ export default function App() {
   const TweetDetails = ({ route }) => (
     <Screen>
       <Text>Tweet Details {route.params.id}</Text>
-      {/* <Button
-        onPress={() => navigation.navigate('Tweets')}
-        title='Tweets'
-      /> */}
     </Screen>
   );
 
@@ -123,33 +120,30 @@ export default function App() {
     </Stack.Navigator>
   );
 
-  // const requestPermission = async () => {
-  //   // const { granted } = await Permissions.askAsync(Permissions.CAMERA_ROLL, Permissions.LOCATION);
-  //   // if (!granted)
-  //   //   alert('You need to enable permission to access the library.');
+  const Account = () => (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  );
 
-  //   const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-  //   if (!granted)
-  //     alert('You need to enable permission to access the library.');
-  // };
-
-  // useEffect(() => {
-  //   requestPermission();
-  // }, []);
-
-  // const selectImage = async () => {
-  //   try {
-  //     const result = await ImagePicker.launchImageLibraryAsync();
-  //     if (!result.cancelled)
-  //       setImageUri(result.uri);
-  //   } catch (error) {
-  //     console.log('Error reading an image', error);
-  //   }
-  // };
+  const Tab = createBottomTabNavigator();
+  const TabNavigator = () => (
+    <Tab.Navigator>
+      <Tab.Screen
+        name='Feed'
+        component={Tweets}
+      />
+      <Tab.Screen
+        name='Account'
+        component={Account}
+      />
+    </Tab.Navigator>
+  );
 
   return (
     <NavigationContainer>
-      <StackNavigator />
+      {/* <StackNavigator /> */}
+      <TabNavigator />
     </NavigationContainer>
   );
 }

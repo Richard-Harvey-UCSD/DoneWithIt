@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/picker": "^1.8.1",
+    "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "5",
     "@react-navigation/stack": "5.3.5",
     "expo": "~45.0.0",
