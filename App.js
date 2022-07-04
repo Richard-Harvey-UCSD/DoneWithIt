@@ -128,10 +128,32 @@ export default function App() {
 
   const Tab = createBottomTabNavigator();
   const TabNavigator = () => (
-    <Tab.Navigator>
+    <Tab.Navigator
+      // tabBarOptions={{
+      //   activeBackgroundColor: 'tomato',
+      //   activeTintColor: 'white',
+      //   inactiveBackgroundColor: '#eee',
+      //   inactiveTintColor: 'black',
+      // }}
+      screenOptions={{
+        tabBarActiveBackgroundColor: 'tomato',
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveBackgroundColor: '#eee',
+        tabBarInactiveTintColor: 'black',
+      }}
+
+    >
       <Tab.Screen
         name='Feed'
         component={Tweets}
+        options={{
+          tabBarIcon: ({ color, size }) =>
+            <MaterialCommunityIcons
+              color={color}
+              name='home'
+              size={size}
+            />
+        }}
       />
       <Tab.Screen
         name='Account'
