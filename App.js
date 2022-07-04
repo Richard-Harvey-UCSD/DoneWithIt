@@ -19,7 +19,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
@@ -67,16 +67,32 @@ export default function App() {
     setImageUris(imageUris.filter(imageUri => imageUri !== uri));
   };
 
+  const Link = () => {
+    const navigation = useNavigation();
+
+    return (
+      <Button
+        title='Click'
+        onPress={() => navigation.navigate('TweetDetails')}
+      />
+    );
+  };
+
   // components
-  const Tweets = () => (
+  const Tweets = ({ navigation }) => (
     <Screen>
       <Text>Tweets</Text>
+      <Link />
     </Screen>
   );
 
-  const TweetDetails = () => (
+  const TweetDetails = ({ navigation }) => (
     <Screen>
       <Text>Tweet Details</Text>
+      {/* <Button
+        onPress={() => navigation.navigate('Tweets')}
+        title='Tweets'
+      /> */}
     </Screen>
   );
 
