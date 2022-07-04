@@ -94,7 +94,7 @@ export default function App() {
   );
 
   const Stack = createStackNavigator();
-  const StackNavigator = () => (
+  const FeedNavigator = () => (
     <Stack.Navigator
       initialRouteName='Tweets'
       screenOptions={{
@@ -109,7 +109,7 @@ export default function App() {
         options={{
           headerStyle: { backgroundColor: 'tomato' },
           headerTintColor: 'white',
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -145,7 +145,7 @@ export default function App() {
     >
       <Tab.Screen
         name='Feed'
-        component={Tweets}
+        component={FeedNavigator}
         options={{
           tabBarIcon: ({ color, size }) =>
             <MaterialCommunityIcons
