@@ -9,24 +9,24 @@ import {
 
 import AppButton from '../components/AppButton';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
-    <View>
-      <ImageBackground
-        style={styles.background}
-        blurRadius={10}
-        source={require('../assets/background.jpg')}
-      >
-        <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../assets/logo-red.png')} />
-          <Text style={styles.tagline}>Sell What You Don't Need</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <AppButton title='Login' color='primary' />
-          <AppButton title='Register' color='secondary' />
-        </View>
-      </ImageBackground>
-    </View>
+    // <View>
+    <ImageBackground
+      style={styles.background}
+      blurRadius={10}
+      source={require('../assets/background.jpg')}
+    >
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require('../assets/logo-red.png')} />
+        <Text style={styles.tagline}>Sell What You Don't Need</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <AppButton title='Login' color='primary' onPress={() => navigation.navigate('Login')} />
+        <AppButton title='Register' color='secondary' onPress={() => navigation.navigate('Register')} />
+      </View>
+    </ImageBackground>
+    // </View>
   );
 };
 

@@ -28,6 +28,7 @@ import AppPicker from './app/components/AppPicker';
 // import AppText from './app/components/AppText/AppText';
 import AppText from "./app/components/AppText";
 import AppTextInput from "./app/components/AppTextInput";
+import AuthNavigator from './app/navigation/AuthNavigator';
 import Card from "./app/components/Card";
 import Icon from "./app/components/Icon";
 import ImageInput from './app/components/ImageInput';
@@ -165,7 +166,8 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <StackNavigator /> */}
-      <TabNavigator />
+      {/* <TabNavigator /> */}
+      <AuthNavigator />
     </NavigationContainer>
   );
 }
