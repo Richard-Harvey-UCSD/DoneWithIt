@@ -42,6 +42,7 @@ import ListItem from "./app/components/ListItem";
 import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from "./app/screens/MessagesScreen";
 import NavigationTheme from './app/navigation/NavigationTheme';
+import routes from './app/navigation/routes';
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -77,7 +78,7 @@ export default function App() {
     return (
       <Button
         title='Click'
-        onPress={() => navigation.navigate('TweetDetails', { id: 1 })}
+        onPress={() => navigation.navigate(routes.TWEET_DETAILS, { id: 1 })}
       />
     );
   };
