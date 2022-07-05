@@ -11,7 +11,6 @@ import AppButton from '../components/AppButton';
 
 const WelcomeScreen = ({ navigation }) => {
   return (
-    // <View>
     <ImageBackground
       style={styles.background}
       blurRadius={10}
@@ -26,13 +25,12 @@ const WelcomeScreen = ({ navigation }) => {
         <AppButton title='Register' color='secondary' onPress={() => navigation.navigate('Register')} />
       </View>
     </ImageBackground>
-    // </View>
   );
 };
 
 const styles = StyleSheet.create({
   background: {
-    // flex: 1,
+    flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '100%',
     // height: '100%',
-    marginTop: 600,
+    // marginTop: 700,
   },
   // loginButton: {
   //   width: '100%',

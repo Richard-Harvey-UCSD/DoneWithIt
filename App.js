@@ -40,6 +40,7 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import ListItem from "./app/components/ListItem";
 import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from "./app/screens/MessagesScreen";
+import NavigationTheme from './app/navigation/NavigationTheme';
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -164,7 +165,7 @@ export default function App() {
   );
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={NavigationTheme}>
       {/* <StackNavigator /> */}
       {/* <TabNavigator /> */}
       <AuthNavigator />
