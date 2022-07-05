@@ -1,7 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Button, FlatList, Platform, PlatformColor, StyleSheet } from 'react-native';
+import
+React,
+{
+  useEffect,
+  useState
+} from 'react';
+import {
+  // ActivityIndicator,
+  Button,
+  FlatList,
+  Platform,
+  PlatformColor,
+  StyleSheet
+} from 'react-native';
 
-
+import ActivityIndicator from '../components/ActivityIndicator';
 import AppButton from '../components/AppButton';
 import AppText from '../components/AppText';
 import Card from '../components/Card';
@@ -53,7 +65,7 @@ function ListingsScreen({ navigation }) {
           <AppButton title='Retry' onPress={loadListings} />
         </>
       )}
-      <ActivityIndicator animating={loading} size='large' />
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={listing => listing.id.toString()}
