@@ -24,6 +24,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";
+import AppNavigator from './app/navigation/AppNavigator';
 import AppPicker from './app/components/AppPicker';
 // import AppText from './app/components/AppText/AppText';
 import AppText from "./app/components/AppText";
@@ -168,7 +169,8 @@ export default function App() {
     <NavigationContainer theme={NavigationTheme}>
       {/* <StackNavigator /> */}
       {/* <TabNavigator /> */}
-      <AuthNavigator />
+      {/* <AuthNavigator /> */}
+      <AppNavigator />
     </NavigationContainer>
   );
 }
