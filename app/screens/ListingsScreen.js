@@ -21,6 +21,7 @@ import colors from '../config/colors';
 import listingsApi from '../api/listings';
 import routes from '../navigation/routes';
 import Screen from '../components/Screen';
+import useApi from '../hooks/useApi';
 
 // const listings = [
 //   {
@@ -38,24 +39,27 @@ import Screen from '../components/Screen';
 // ];
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { data: listings, error, loading, request: loadListings } = useApi(listingsApi.getListings);
+
+  // const [listings, setListings] = useState([]);
+  // const [error, setError] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
   }, []);
 
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
+  // const loadListings = async (...args) => {
+  //   setLoading(true);
+  //   const response = await apiFunc(...args);
+  //   setLoading(false);
 
-    if (!response.ok) return setError(true);
+  //   if (!response.ok) return setError(true);
 
-    setError(false);
-    setListings(response.data);
-  };
+  //   setError(false);
+  //   setListings(response.data);
+  // };
+
 
   return (
     <Screen style={styles.screen}>
