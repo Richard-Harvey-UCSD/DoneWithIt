@@ -1,6 +1,7 @@
 // import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from "react";
 import {
+  AsyncStorage,
   Button,
   Dimensions,
   Image,
@@ -34,6 +35,7 @@ import AppText from "./app/components/AppText";
 import AppTextInput from "./app/components/AppTextInput";
 import AuthNavigator from './app/navigation/AuthNavigator';
 import Card from "./app/components/Card";
+import colors from './app/config/colors';
 import Icon from "./app/components/Icon";
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
@@ -50,7 +52,6 @@ import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
-import colors from './app/config/colors';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -80,6 +81,20 @@ export default function App() {
   const [password, setPassword] = useState('');
 
   const [imageUris, setImageUris] = useState([]);
+
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem('person');
+      const person = JSON.parse(value);
+      console.log('person: ', person);
+    } catch (error) {
+      console.log('error: ', error);
+    }
+  };
+
+  demo();
+
 
   // methods
   const handleAdd = uri => {
