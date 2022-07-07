@@ -23,6 +23,7 @@ import * as Permissions from 'expo-permissions';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 LogBox.ignoreAllLogs();
 
@@ -47,11 +48,11 @@ import ListItem from "./app/components/ListItem";
 import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from "./app/screens/MessagesScreen";
 import NavigationTheme from './app/navigation/NavigationTheme';
+import OfflineNotice from './app/components/OfflineNotice';
 import routes from './app/navigation/routes';
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -200,16 +201,19 @@ export default function App() {
   );
 
   return (
-    <NavigationContainer theme={NavigationTheme}>
-      {/* <StackNavigator /> */}
-      {/* <TabNavigator /> */}
-      {/* <AuthNavigator /> */}
-      <StatusBar
-        backgroundColor={colors.light}
-        barStyle={'dark-content'}
-      />
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={NavigationTheme}>
+        {/* <StackNavigator /> */}
+        {/* <TabNavigator /> */}
+        {/* <AuthNavigator /> */}
+        <StatusBar
+          backgroundColor={colors.light}
+          barStyle={'dark-content'}
+        />
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   );
 }
 
