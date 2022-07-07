@@ -8,11 +8,12 @@ import * as Yup from 'yup';
 // import AppFormField from '../components/forms/AppFormField';
 // import AppText from '../components/AppText';
 // import AppTextInput from '../components/AppTextInput';
+import authApi from '../api/auth';
 // import ErrorMessage from '../components/forms/ErrorMessage';
 import Screen from '../components/Screen';
 // import SubmitButton from '../components/forms/SubmitButton';
 
-import { AppForm, AppFormField, SubmitButton } from '../components/forms';
+import { AppForm, AppFormField, ErrorMessage, SubmitButton } from '../components/forms';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -22,6 +23,16 @@ const validationSchema = Yup.object().shape({
 function LoginScreen(props) {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
+  const [loginFailed, setLoginFailed] = useState(false);
+
+  const handleSubmit = async ({ email, password }) => {
+    const result = await authApi.login(email, password);
+
+    if (!result.ok) return setLoginFailed(true);
+
+    setLoginFailed(false);
+    console.log(result.data);
+  };
 
   return (
     <Screen style={styles.container}>
@@ -31,9 +42,10 @@ function LoginScreen(props) {
       />
       <AppForm
         initialValues={{ email: '', password: '' }}
-        onSubmit={values => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
+        <ErrorMessage error='Invalid email and/or password.' visible={loginFailed} />
         <AppFormField
           autoCapitalize='none'
           autoCorrect={false}

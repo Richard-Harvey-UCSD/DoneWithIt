@@ -206,12 +206,12 @@ export default function App() {
       <NavigationContainer theme={NavigationTheme}>
         {/* <StackNavigator /> */}
         {/* <TabNavigator /> */}
-        {/* <AuthNavigator /> */}
+        <AuthNavigator />
         <StatusBar
           backgroundColor={colors.light}
           barStyle={'dark-content'}
         />
-        <AppNavigator />
+        {/* <AppNavigator /> */}
       </NavigationContainer>
     </>
   );
