@@ -50,6 +50,7 @@ import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
+import colors from './app/config/colors';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -188,6 +189,10 @@ export default function App() {
       {/* <StackNavigator /> */}
       {/* <TabNavigator /> */}
       {/* <AuthNavigator /> */}
+      <StatusBar
+        backgroundColor={colors.light}
+        barStyle={'dark-content'}
+      />
       <AppNavigator />
     </NavigationContainer>
   );
