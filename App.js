@@ -34,6 +34,7 @@ import AppPicker from './app/components/AppPicker';
 // import AppText from './app/components/AppText/AppText';
 import AppText from "./app/components/AppText";
 import AppTextInput from "./app/components/AppTextInput";
+import AuthContext from './app/auth/context';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import Card from "./app/components/Card";
 import colors from './app/config/colors';
@@ -82,6 +83,8 @@ export default function App() {
   const [password, setPassword] = useState('');
 
   const [imageUris, setImageUris] = useState([]);
+
+  const [user, setUser] = useState();
 
   const demo = async () => {
     try {
@@ -201,19 +204,20 @@ export default function App() {
   );
 
   return (
-    <>
+    <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
-        {/* <StackNavigator /> */}
-        {/* <TabNavigator /> */}
-        <AuthNavigator />
         <StatusBar
           backgroundColor={colors.light}
           barStyle={'dark-content'}
         />
+        {user ? <AppNavigator /> : <AuthNavigator />}
+        {/* <StackNavigator /> */}
+        {/* <TabNavigator /> */}
+        {/* <AuthNavigator /> */}
         {/* <AppNavigator /> */}
       </NavigationContainer>
-    </>
+    </AuthContext.Provider>
   );
 }
 
