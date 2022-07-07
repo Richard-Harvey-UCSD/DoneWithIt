@@ -49,6 +49,7 @@ import routes from './app/navigation/routes';
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -57,6 +58,19 @@ const categories = [
 ];
 
 export default function App() {
+  // NetInfo.fetch().then(netInfo => console.log(netInfo));
+
+  // //componentDidMount
+  // const unsubscribe = NetInfo.addEventListener(netInfo => console.log(netInfo));
+
+  // //componentWillUnmount
+  // unsubscribe();
+
+  // better to use netInfo hook
+  const netInfo = useNetInfo();
+
+  // return <Button disabled={!netInfo.isInternetReachable} />
+
   const [firstName, setFirstName] = useState("");
   const [isNew, setIsNew] = useState(false);
   const [category, setCategory] = useState(categories[0]);
