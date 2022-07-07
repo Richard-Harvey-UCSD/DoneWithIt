@@ -55,6 +55,7 @@ function ListingEditScreen(props) {
   const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing) => {
+    setProgress(0);
     setUploadVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
