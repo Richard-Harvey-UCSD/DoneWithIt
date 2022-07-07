@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 // import { Formik } from 'formik';
 import * as Yup from 'yup';
+import jwtDecode from 'jwt-decode';
 
 // import AppButton from '../components/AppButton';
 // import AppForm from '../components/forms/AppForm';
@@ -31,7 +32,8 @@ function LoginScreen(props) {
     if (!result.ok) return setLoginFailed(true);
 
     setLoginFailed(false);
-    console.log(result.data);
+    const user = jwtDecode(result.data);
+    console.log(user);
   };
 
   return (
