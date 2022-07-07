@@ -5,6 +5,7 @@ import {
   Dimensions,
   Image,
   ImageComponent,
+  LogBox,
   Platform,
   SafeAreaView,
   ScrollView,
@@ -21,6 +22,8 @@ import * as Permissions from 'expo-permissions';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+LogBox.ignoreAllLogs();
 
 import AccountScreen from "./app/screens/AccountScreen";
 import AppButton from "./app/components/AppButton";

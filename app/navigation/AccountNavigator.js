@@ -14,13 +14,15 @@ const AccountNavigator = () => (
     <Stack.Screen
       name='Account'
       component={AccountScreen}
+      options={{ headerShown: false }}
     />
     <Stack.Screen
       name='Messages'
       component={MessagesScreen}
-    // options={{
-    //   headerShown: Platform.OS === 'android' ? true : false,
-    // }}
+      // options={{
+      //   headerShown: Platform.OS === 'android' ? true : false,
+      // }}
+      options={{ headerShown: false }}
     />
   </Stack.Navigator>
 );

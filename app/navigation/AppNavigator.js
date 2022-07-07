@@ -23,7 +23,8 @@ export default AppNavigator = () => (
             name='home'
             color={color}
             size={size}
-          />
+          />,
+        headerShown: false,
       }}
     />
     <Tab.Screen
@@ -40,6 +41,7 @@ export default AppNavigator = () => (
             color={color}
             size={size}
           />,
+        headerShown: false,
       })}
     />
     <Tab.Screen
@@ -51,7 +53,8 @@ export default AppNavigator = () => (
             name='account'
             color={color}
             size={size}
-          />
+          />,
+        headerShown: false,
       }}
     />
   </Tab.Navigator>

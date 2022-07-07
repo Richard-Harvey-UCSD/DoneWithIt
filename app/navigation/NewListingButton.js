@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import colors from '../config/colors';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function NewListingButton({ onPress }) {
   return (
