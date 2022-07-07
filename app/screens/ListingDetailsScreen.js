@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import {
+  Platform,
+  // Image,
+  StyleSheet,
+  View,
+} from "react-native";
+import { Image } from 'react-native-expo-image-cache';
+import Constants from 'expo-constants';
 
 import AppText from "../components/AppText";
 import ListItem from "../components/ListItem";
@@ -10,7 +17,12 @@ function ListingDetailsScreen({ route }) {
 
   return (
     <View>
-      <Image style={styles.image} source={listing.image} />
+      <Image
+        style={styles.image}
+        preview={{ uri: listing.images[0].thumbnailUrl }}
+        tint='light'
+        uri={listing.images[0].url}
+      />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
         <AppText style={styles.price}>${listing.price}</AppText>
@@ -33,6 +45,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 300,
+    marginTop: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
   },
   price: {
     color: colors.secondary,
