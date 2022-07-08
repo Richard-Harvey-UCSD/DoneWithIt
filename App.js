@@ -25,6 +25,7 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import jwtDecode from 'jwt-decode';
+import AppLoading from 'expo-app-loading';
 
 LogBox.ignoreAllLogs();
 
@@ -88,15 +89,17 @@ export default function App() {
 
   const [user, setUser] = useState();
 
+  const [isReady, setIsReady] = useState(false);
+
   const restoreToken = async () => {
     const token = await authStorage.getToken();
     if (!token) return;
     setUser(jwtDecode(token));
   };
 
-  useEffect(() => {
-    restoreToken();
-  }, []);
+  // useEffect(() => {
+  //   restoreToken();
+  // }, []);
 
   const demo = async () => {
     try {
@@ -214,6 +217,13 @@ export default function App() {
       />
     </Tab.Navigator>
   );
+
+  if (!isReady)
+    return <AppLoading
+      onFinish={() => setIsReady(true)}
+      startAsync={restoreToken}
+      onError={console.log('error')}
+    />;
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
