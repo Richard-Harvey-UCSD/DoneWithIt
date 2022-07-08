@@ -1,5 +1,10 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from "react";
+import
+React,
+{
+  useEffect,
+  useState
+} from "react";
 import {
   AsyncStorage,
   Button,
@@ -91,10 +96,9 @@ export default function App() {
 
   const [isReady, setIsReady] = useState(false);
 
-  const restoreToken = async () => {
-    const token = await authStorage.getToken();
-    if (!token) return;
-    setUser(jwtDecode(token));
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
   };
 
   // useEffect(() => {
@@ -112,7 +116,7 @@ export default function App() {
     }
   };
 
-  demo();
+  // demo();
 
 
   // methods
@@ -221,7 +225,7 @@ export default function App() {
   if (!isReady)
     return <AppLoading
       onFinish={() => setIsReady(true)}
-      startAsync={restoreToken}
+      startAsync={restoreUser}
       onError={console.log('error')}
     />;
 
