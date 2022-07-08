@@ -24,6 +24,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
+import jwtDecode from 'jwt-decode';
 
 LogBox.ignoreAllLogs();
 
@@ -54,6 +55,7 @@ import routes from './app/navigation/routes';
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import authStorage from './app/auth/storage';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -85,6 +87,16 @@ export default function App() {
   const [imageUris, setImageUris] = useState([]);
 
   const [user, setUser] = useState();
+
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (!token) return;
+    setUser(jwtDecode(token));
+  };
+
+  useEffect(() => {
+    restoreToken();
+  }, []);
 
   const demo = async () => {
     try {

@@ -4,18 +4,19 @@ import { Image, StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 import jwtDecode from 'jwt-decode';
 
+import { AppForm, AppFormField, ErrorMessage, SubmitButton } from '../components/forms';
 // import AppButton from '../components/AppButton';
 // import AppForm from '../components/forms/AppForm';
 // import AppFormField from '../components/forms/AppFormField';
 // import AppText from '../components/AppText';
 // import AppTextInput from '../components/AppTextInput';
 import authApi from '../api/auth';
+import AuthContext from '../auth/context';
+import authStorage from '../auth/storage';
 // import ErrorMessage from '../components/forms/ErrorMessage';
 import Screen from '../components/Screen';
 // import SubmitButton from '../components/forms/SubmitButton';
 
-import { AppForm, AppFormField, ErrorMessage, SubmitButton } from '../components/forms';
-import AuthContext from '../auth/context';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -37,6 +38,7 @@ function LoginScreen(props) {
     const user = jwtDecode(result.data);
     // console.log(user);
     authContext.setUser(user);
+    authStorage.storeToken(result.data);
   };
 
   return (
