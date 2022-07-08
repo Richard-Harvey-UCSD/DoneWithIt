@@ -1,10 +1,24 @@
-import React, { useContext, useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import
+React,
+{
+  useContext,
+  useState,
+} from 'react';
+import {
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
 // import { Formik } from 'formik';
 import * as Yup from 'yup';
 import jwtDecode from 'jwt-decode';
 
-import { AppForm, AppFormField, ErrorMessage, SubmitButton } from '../components/forms';
+import {
+  AppForm,
+  AppFormField,
+  ErrorMessage,
+  SubmitButton,
+} from '../components/forms';
 // import AppButton from '../components/AppButton';
 // import AppForm from '../components/forms/AppForm';
 // import AppFormField from '../components/forms/AppFormField';
@@ -15,6 +29,7 @@ import AuthContext from '../auth/context';
 import authStorage from '../auth/storage';
 // import ErrorMessage from '../components/forms/ErrorMessage';
 import Screen from '../components/Screen';
+import useAuth from '../auth/useAuth';
 // import SubmitButton from '../components/forms/SubmitButton';
 
 
@@ -24,21 +39,22 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-  const authContext = useContext(AuthContext);
+  // const authContext = useContext(AuthContext);
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
+
+  const auth = useAuth();
   const [loginFailed, setLoginFailed] = useState(false);
 
   const handleSubmit = async ({ email, password }) => {
     const result = await authApi.login(email, password);
-
     if (!result.ok) return setLoginFailed(true);
-
     setLoginFailed(false);
-    const user = jwtDecode(result.data);
-    // console.log(user);
-    authContext.setUser(user);
-    authStorage.storeToken(result.data);
+    auth.logIn(result.data);
+    // const user = jwtDecode(result.data);
+    // // console.log(user);
+    // authContext.setUser(user);
+    // authStorage.storeToken(result.data);
   };
 
   return (
