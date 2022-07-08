@@ -21,10 +21,10 @@ const AuthNavigator = () => (
       component={LoginScreen}
       name='Login'
     />
-    {/* <Stack.Screen
+    <Stack.Screen
       component={RegisterScreen}
       name='Register'
-    /> */}
+    />
   </Stack.Navigator>
 );
 
