@@ -52,7 +52,7 @@ function LoginScreen(props) {
     setLoginFailed(false);
     auth.logIn(result.data);
     // const user = jwtDecode(result.data);
-    // // console.log(user);
+    console.log(result.data);
     // authContext.setUser(user);
     // authStorage.storeToken(result.data);
   };
