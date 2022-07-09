@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "PoshApp",
+    "privacy": "unlisted",
     "slug": "PoshApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -34,13 +35,6 @@
         "apiKey": "064e587c861438dc35cf2075c6111ca1"
       }
     },
-    "hooks": {
-      "postPublish": [
-        {
-          "file": "@bugsnag/expo/hooks/post-publish.js",
-          "config": {}
-        }
-      ]
-    }
+    "hooks": {}
   }
 }
