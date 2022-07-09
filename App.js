@@ -31,6 +31,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import jwtDecode from 'jwt-decode';
 import AppLoading from 'expo-app-loading';
+// import Bugsnag from '@bugsnag/expo';
 
 LogBox.ignoreAllLogs();
 
