@@ -48,7 +48,9 @@ export default AppNavigator = () => {
   //   }
   // };
 
-  useNotifications();
+  useNotifications(() => {
+    navigation.navigate('ListingEdit');
+  });
 
   return (
     <Tab.Navigator>
