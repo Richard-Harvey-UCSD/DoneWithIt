@@ -3499,6 +3499,11 @@ expo-notifications@~0.15.4:
     fs-extra "^9.1.0"
     uuid "^3.4.0"
 
+expo-optimize@^0.2.17:
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/expo-optimize/-/expo-optimize-0.2.17.tgz#d15fea673f06a50e9451795fa9307e5213aeba0e"
+  integrity sha512-6Z29EfBw+ppFloqzT0nMe8Sp3xECQZRevsHOyOUw/CCQG3J+QIRd3GtVv+xMlycwiE2jY1XcWYlgQ19YtMpbPA==
+
 expo-permissions@~13.2.0:
   version "13.2.0"
   resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-13.2.0.tgz#9306f1ae3c49dbe9157f948983486ccb19fc2989"
