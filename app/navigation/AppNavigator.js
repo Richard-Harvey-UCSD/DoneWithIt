@@ -11,6 +11,7 @@ import ListingEditScreen from '../screens/ListingEditScreen';
 import ListingsScreen from '../screens/ListingsScreen';
 import NewListingButton from './NewListingButton';
 import routes from './routes';
+import expoPushTokensApi from '../api/expoPushTokens';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,8 @@ export default AppNavigator = () => {
       if (!permission.granted) return;
 
       const token = await Notifications.getExpoPushTokenAsync();
-      console.log('token: ', token);
+      expoPushTokensApi.register(token);
+      // console.log('token: ', token);
     } catch (error) {
       console.log('Error getting a push token', error);
     }
