@@ -62,6 +62,7 @@ import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import authStorage from './app/auth/storage';
+import { navigationRef } from './app/navigation/rootNavigation';
 
 const categories = [
   { label: 'Furniture', value: 1 },
@@ -229,10 +230,12 @@ export default function App() {
       onError={console.log('error')}
     />;
 
+  // const navigationRef = React.createRef(); 
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
-      <NavigationContainer theme={NavigationTheme}>
+      <NavigationContainer ref={navigationRef} theme={NavigationTheme}>
         <StatusBar
           backgroundColor={colors.light}
           barStyle={'dark-content'}

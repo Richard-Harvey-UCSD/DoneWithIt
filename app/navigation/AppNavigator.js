@@ -12,12 +12,26 @@ import ListingsScreen from '../screens/ListingsScreen';
 import NewListingButton from './NewListingButton';
 import routes from './routes';
 import expoPushTokensApi from '../api/expoPushTokens';
+import navigation from './rootNavigation';
 
 const Tab = createBottomTabNavigator();
 
 export default AppNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
+
+    // Notifications.addListener(notification => {
+    //   navigation.navigate('Account');
+    // });
+
+    Notifications.addNotificationResponseReceivedListener(() => {
+      navigation.navigate('Account');
+    });
+
+    // const subscription = Notifications.addNotificationResponseReceivedListener(notification => {
+    //   console.log(notification);
+    // });
+    // return () => subscription.remove();
   }, []);
 
   const registerForPushNotifications = async () => {
