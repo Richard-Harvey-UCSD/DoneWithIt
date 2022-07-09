@@ -13,39 +13,42 @@ import NewListingButton from './NewListingButton';
 import routes from './routes';
 import expoPushTokensApi from '../api/expoPushTokens';
 import navigation from './rootNavigation';
+import useNotifications from '../hooks/useNotifications';
 
 const Tab = createBottomTabNavigator();
 
 export default AppNavigator = () => {
-  useEffect(() => {
-    registerForPushNotifications();
+  // useEffect(() => {
+  //   registerForPushNotifications();
 
-    // Notifications.addListener(notification => {
-    //   navigation.navigate('Account');
-    // });
+  //   // Notifications.addListener(notification => {
+  //   //   navigation.navigate('Account');
+  //   // });
 
-    Notifications.addNotificationResponseReceivedListener(() => {
-      navigation.navigate('Account');
-    });
+  //   Notifications.addNotificationResponseReceivedListener(() => {
+  //     navigation.navigate('Account');
+  //   });
 
-    // const subscription = Notifications.addNotificationResponseReceivedListener(notification => {
-    //   console.log(notification);
-    // });
-    // return () => subscription.remove();
-  }, []);
+  //   // const subscription = Notifications.addNotificationResponseReceivedListener(notification => {
+  //   //   console.log(notification);
+  //   // });
+  //   // return () => subscription.remove();
+  // }, []);
 
-  const registerForPushNotifications = async () => {
-    try {
-      const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-      if (!permission.granted) return;
+  // const registerForPushNotifications = async () => {
+  //   try {
+  //     const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+  //     if (!permission.granted) return;
 
-      const token = await Notifications.getExpoPushTokenAsync();
-      expoPushTokensApi.register(token);
-      // console.log('token: ', token);
-    } catch (error) {
-      console.log('Error getting a push token', error);
-    }
-  };
+  //     const token = await Notifications.getExpoPushTokenAsync();
+  //     expoPushTokensApi.register(token);
+  //     // console.log('token: ', token);
+  //   } catch (error) {
+  //     console.log('Error getting a push token', error);
+  //   }
+  // };
+
+  useNotifications();
 
   return (
     <Tab.Navigator>
